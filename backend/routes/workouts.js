@@ -1,12 +1,15 @@
 const express = require('express')
 const router = express.Router()
+const mongoose = require('mongoose')
+
+const {
+    getDefaultWorkouts,
+    getAllUserWorkouts,
+    getUserCreatedWorkouts
+} = require("../controllers/WorkoutController")
 
 // GET all workouts
-router.get("/", (request, response) => {
-    response.json({
-        msg: "GET all workouts"
-    })
-})
+router.get("/", getDefaultWorkouts)
 
 // GET a single workout
 router.get("/:id", (request, response) => {
